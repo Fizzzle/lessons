@@ -24,36 +24,30 @@ const personalMovieDB = {
     privat: false,
 };
 
-let a,
-    b;
     
-
-    
-    
-    
-    
-    for (let i = 0; i < 2; i++) {
-    a = prompt('Один из последних просмотренных фильмов', 'етмен');
-    b = prompt('На сколько оцените его?', '10');
-    if (a == '' || a == null || a.length > 50) {
-        a = prompt('Один из последних просмотренных фильмов', 'бетмен');
+for (let i = 0; i < 2; i++) {
+    const a = prompt('Один из последних просмотренных фильмов', 'етмен'),
         b = prompt('На сколько оцените его?', '10');
-        console.log("ошибка");
-        i--;
+
+    if (a != '' && b != '' && b != null && a != null && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log('Всё окей');    
+            
     } else {
-        console.log('Всё верно');
+        console.log('error');
+        i--;
     }
 }
     
-if (personalMovieDB.count < 5) {
-    console.log('Маловато бро');
-} else if(personalMovieDB.count > 5 && personalMovieDB.count < 20){
-    console.log(`Ну ты хорош, глянул аж ${numberOfFilms} фильмов`);
-} else if(personalMovieDB.count > 21) {
-    console.log('Ну тут даже мы с пацанами в шоке');
-} 
-
-personalMovieDB.movies[a] = b;
+if (personalMovieDB.count < 10) {
+    console.log('Просмотрено довольно мало фильмов');
+} else if(personalMovieDB.count >= 10 && personalMovieDB.count < 30){
+    console.log(`Вы классический зритель, глянули аж ${numberOfFilms} фильмов`);
+} else if(personalMovieDB.count >= 30) {
+    console.log('Вы киноман');
+} else{
+    console.log('Ошибка');
+}
 
 console.log(personalMovieDB);
 
